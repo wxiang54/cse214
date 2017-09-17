@@ -2,6 +2,9 @@
 *~
 *\#
 
+#macs
+.DS_Store
+
 #IDE config
 .idea/workspace.xml
 .idea/libraries
