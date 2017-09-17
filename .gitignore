@@ -6,8 +6,7 @@
 .DS_Store
 
 #IDE config
-.idea/workspace.xml
-.idea/libraries
+.idea
 
 # Compiled class file
 *.class
