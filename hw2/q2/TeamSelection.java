@@ -1,7 +1,7 @@
-package mySrc;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import questionTwo.*;
 
 public class TeamSelection {
     private static class Player implements Comparable<Player> {
@@ -43,7 +43,7 @@ public class TeamSelection {
 		
 		//inserting in reverse bc adding at front each time for simplicity
 		//also assume JERSEYS.length = HEIGHTS.length
-		for (int j = JERSEYS.length; j >= 0; j--) {
+		for (int j = JERSEYS.length-1; j >= 0; j--) {
 		    Player p = new Player( Integer.parseInt(JERSEYS[j]),
 					   Double.parseDouble(HEIGHTS[j]) );
 		    playerDLL.add(p);

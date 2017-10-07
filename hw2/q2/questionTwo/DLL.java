@@ -1,4 +1,4 @@
-package mySrc;
+package questionTwo;
 import java.util.NoSuchElementException;
 
 /* DOUBLY LINKEDLIST CLASS FOR HW2 Q2

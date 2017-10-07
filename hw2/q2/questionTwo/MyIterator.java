@@ -1,4 +1,4 @@
-package mySrc;
+package questionTwo;
 import java.util.NoSuchElementException;
 
 public interface MyIterator<T> {
