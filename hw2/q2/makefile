@@ -1,13 +1,11 @@
-make: in2.txt TeamSelection.java questionTwo/DLL.java questionTwo/MyIterable.java questionTwo/MyIterator.java
+make: in2.txt TeamSelection.java q2src/DLL.java q2src/MyIterable.java q2src/MyIterator.java
 	javac TeamSelection.java
-
-#	javac 
 
 run: make
 	java TeamSelection
 
-test: make
-	java mySrc.DLL
+debug: make
+	java q2src.DLL
 
 clean:
 	rm -f *.class *~ *\#

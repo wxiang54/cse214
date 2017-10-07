@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import questionTwo.*;
+import q2src.*; //my DLL and Iterator classes
 
 public class TeamSelection {
     private static class Player implements Comparable<Player> {
