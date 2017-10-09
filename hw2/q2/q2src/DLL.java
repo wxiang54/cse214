@@ -193,7 +193,7 @@ public class DLL<T> implements MyIterable {
     }
 
     
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 	System.out.println("initializing DLL m...");
 	DLL<Integer> m = new DLL<Integer>();
 

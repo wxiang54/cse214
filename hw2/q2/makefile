@@ -1,4 +1,4 @@
-make: in2.txt TeamSelection.java q2src/DLL.java q2src/MyIterable.java q2src/MyIterator.java
+make: in2.txt TeamSelection.java q2src/
 	javac TeamSelection.java
 
 run: make
