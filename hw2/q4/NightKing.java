@@ -29,6 +29,7 @@ public class NightKing {
 	    Scanner sc = new Scanner(file);
 	    NUM_CASES = Integer.parseInt(sc.nextLine());
 	    for (int i = 0; i < NUM_CASES; i++) {
+		WhiteWalker.numWW = 0; //reset for init. numbering system
 		int N = sc.nextInt();
 		int M = Integer.parseInt(sc.nextLine().trim());
 		String[] POWERS = sc.nextLine().split(" ");

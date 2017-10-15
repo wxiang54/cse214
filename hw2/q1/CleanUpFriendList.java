@@ -9,10 +9,12 @@ public class CleanUpFriendList {
     private static class Friend implements Comparable<Friend> {
 	private String _name;
 	private int _numMF; //num of mutual friends
-
-	public Friend( String name, int numMF ) {
+	private int _initPos; //position in initial input
+	
+	public Friend( String name, int numMF, int initPos ) {
 	    _name = name;
 	    _numMF = numMF;
+	    _initPos = initPos;
 	}
 	
 	@Override
@@ -32,11 +34,11 @@ public class CleanUpFriendList {
 		}
     }
 
-    //insertion sort by name
-    public static void sortFriendsByName(Friend[] arr) {
+    //insertion sort by position in initial input
+    public static void sortFriendsByInitPos(Friend[] arr) {
 	for (int i = 1; i < arr.length; i++)
 	    for (int j = i; j > 0; j--)
-		if (arr[j]._name.compareTo(arr[j-1]._name) < 0) {
+		if (arr[j]._initPos < arr[j-1]._initPos) {
 		    Friend tmp = arr[j-1];
 		    arr[j-1] = arr[j];
 		    arr[j] = tmp;
@@ -74,8 +76,12 @@ public class CleanUpFriendList {
 		Friend[] FRIENDS = new Friend[NAMES.length]; //for ease of handling
 		int minMF = Integer.parseInt( NUM_MUTUAL_FRIENDS[0] ); //default first friend
 		int maxMF = minMF; //default first friend
+		int curInitPos = 0; //to help sort friends at very end
 		for (int j = 0; j < NAMES.length; j++) {
-		    Friend f = new Friend(NAMES[j], Integer.parseInt( NUM_MUTUAL_FRIENDS[j] ));
+		    Friend f = new Friend( NAMES[j],
+					   Integer.parseInt( NUM_MUTUAL_FRIENDS[j] ),
+					   curInitPos);
+		    curInitPos++;
 		    if (f._numMF < minMF) {
 			minMF = f._numMF;
 		    }
@@ -103,9 +109,9 @@ public class CleanUpFriendList {
 			if (f._numMF >= bucket_min && f._numMF <= bucket_max)
 			    bucket.enqueue(f);
 		    }
-		    
+
 		    //start running josephus simulation
-		    if (bucket.isEmpty()) break;
+		    if (bucket.isEmpty()) continue;
 		    int cycleAmt = K % (bucket.size()+1); //so won't cycle thru entire list more than once
 		    while ( bucket.size() > 1 ) {
 			for (int z = 1; z < cycleAmt; z++) {
@@ -122,7 +128,7 @@ public class CleanUpFriendList {
 		for (int x = 0; x < SORTED_ANSWER.length; x++) {
 		    SORTED_ANSWER[x] = ANSWER.removeFirst();
 		}
-		sortFriendsByName( SORTED_ANSWER );
+		sortFriendsByInitPos( SORTED_ANSWER );
 		printFriends( SORTED_ANSWER );
 		
 	    }
