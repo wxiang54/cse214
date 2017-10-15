@@ -95,8 +95,8 @@ public class CleanUpFriendList {
 		for (int mf = minMF; mf < maxMF; mf+=B) {
 		    int bucket_min = mf;
 		    int bucket_max = mf + B - 1;
-		    if (mf == minMF + (K-1)*B)//last bucket
-			bucket_max = maxMF;
+		    if (mf == minMF + (K-1)*B) //if last bucket
+			bucket_max = maxMF; //this accounts for both expanding/shrinking last bucket
 		    
 		    Queue<Friend> bucket = new LLQueue<Friend>();
 		    for (Friend f : FRIENDS) {
@@ -106,14 +106,14 @@ public class CleanUpFriendList {
 		    
 		    //start running josephus simulation
 		    if (bucket.isEmpty()) break;
-		    int cycleAmt = K % (bucket.size()+1); //so won't cycle entire list > once
+		    int cycleAmt = K % (bucket.size()+1); //so won't cycle thru entire list more than once
 		    while ( bucket.size() > 1 ) {
 			for (int z = 1; z < cycleAmt; z++) {
 			    bucket.enqueue( bucket.dequeue() );
 			}
-			bucket.dequeue();
+			bucket.dequeue(); //"executed" friend
 		    }
-		    ANSWER.addLast( bucket.dequeue() ); //friend to be added
+		    ANSWER.addLast( bucket.dequeue() ); //friend to keep
 		}
 
 		

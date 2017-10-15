@@ -31,7 +31,6 @@ public class NightKing {
 	    for (int i = 0; i < NUM_CASES; i++) {
 		int N = sc.nextInt();
 		int M = Integer.parseInt(sc.nextLine().trim());
-		//		System.out.println("N: " + N + ", M: " + M);
 		String[] POWERS = sc.nextLine().split(" ");
 		Queue<WhiteWalker> WHITEWALKERS = new LLQueue<WhiteWalker>();
 		Queue<WhiteWalker> WW_SELECTED = new LLQueue<WhiteWalker>(); //"selected" WW go in here
@@ -43,13 +42,12 @@ public class NightKing {
 
 		//M iterations of algo
 		for (int j = 0; j < M; j++) {
-		    WhiteWalker[] dequeued_ww = new WhiteWalker[M];
+		    WhiteWalker[] dequeued_ww = new WhiteWalker[ Math.min(M, WHITEWALKERS.size()) ];
 		    int maxpower = -1; //this is max power value of whitewalkers
 		    int ind_maxpower = 0; //this is index of white walker with max power
 
-		    for (int k = 0; k < M; k++) {
-			if ( WHITEWALKERS.isEmpty() )
-			    break; //if M > queue length, all items should be dequeued
+		    for (int k = 0; k < dequeued_ww.length; k++) {
+			//if M > queue length, all items should be dequeued
 			WhiteWalker ww = WHITEWALKERS.dequeue();
 			dequeued_ww[k] = ww;
 			if (ww._power > maxpower) {
@@ -58,9 +56,7 @@ public class NightKing {
 			}
 		    }
 
-		    for (int k = 0; k < M; k++) {
-			if (dequeued_ww[k] == null)
-			    break;
+		    for (int k = 0; k < dequeued_ww.length; k++) {
 			if (k == ind_maxpower)
 			    continue; //WW with max power shouldn't be enqueued back
 			WhiteWalker ww = dequeued_ww[k];
@@ -72,7 +68,7 @@ public class NightKing {
 		    WW_SELECTED.enqueue( dequeued_ww[ind_maxpower] );
 		}
 
-		//ANSWER
+		//THIS IS THE ANSWER
 		System.out.println(WW_SELECTED);
 	    }
 	}

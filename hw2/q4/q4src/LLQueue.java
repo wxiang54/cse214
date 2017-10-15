@@ -36,6 +36,11 @@ public class LLQueue<T> implements Queue<T> {
     }
 
     @Override
+    public int size() {
+	return _LL.size();
+    }
+    
+    @Override
     public String toString() {
 	if ( isEmpty() ) return "";
 	String retStr = "";
