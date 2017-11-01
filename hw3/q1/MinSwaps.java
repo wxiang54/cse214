@@ -38,6 +38,7 @@ public class MinSwaps {
 
 		//then swap the elements and increment swap counter
 		if (i != minPos) {
+		    //System.out.println(swapCtr + ": " + "swap " + INORDER[i] + " with " + INORDER[minPos]);
 		    INORDER[i] = INORDER[i] ^ INORDER[minPos];
 		    INORDER[minPos] = INORDER[i] ^ INORDER[minPos];
 		    INORDER[i] = INORDER[i] ^ INORDER[minPos];

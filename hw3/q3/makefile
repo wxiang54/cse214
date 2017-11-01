@@ -1,8 +1,8 @@
 make: TwoThreeFourTree.java
-	javac TwoThreeFourTree.java
+	javac *.java
 
 run: make
-	java TwoThreeFourTree
+	java TreeTester
 
 clean:
 	rm -f *~ *\# *.class
