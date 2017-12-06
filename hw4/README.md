@@ -1,6 +1,6 @@
-# Homework #3
+# Homework #4
 
-BST, HEAPS, and 2-3-4 TREE
+HASHMAPS / HASHTABLES
 
 William Xiang
 
@@ -15,6 +15,3 @@ William Xiang
   * To run the makefile, execute `$make run` in the makefile's directory (or simply type `$make` to compile but not run)
   * Put input files (in<#>.txt, like the last HW) are in the same directory as the driver file before running
     * Also please make sure there are no blank lines between test cases in input files
-
-
-* NOTE: As you will soon find out anyway, I did not implement delete() fxn for the 2-3-4 Tree in Question 3. But just as a quick forenote. :)
